@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+header{
+ display: flex;
+  flex-direction: row; 
+  justify-content:start;
+  align-items:center;
+  color: black;
+  font-family: ;
+}
+.logo-image{
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  margin-top: 3rem;
+ }
+  
+body {
+  font-family:'Courier New', Courier, monospace;
+  background-color: rgb(156, 239, 240);
+  color: rgb(230, 171, 70);
+}
+
+main {
+  display: flex;
+  flex-direction: row; 
+  /* width: 1024px; */
+  margin: 3rem auto;
+
+}
+.wrapper {
+  display: grid;
+  grid-template-columns:  380px 380px 380px ;
+  grid-template-rows: 20rem 20rem ;
+ 
+
+  font-size:3rem;
+  color: rgb(74, 68, 68);
+  /* line-height: .8; */
+  /* margin: none !important; */
+}
+
+
+.title{
+  margin: 0;
+  margin-top: 15px;
+  grid-column: 2 / 3;
+  grid-row: 1;
+  
+}
+
+#pic1 {
+  grid-column: 2 / 3 ;
+  grid-row: 2 / 5;
+  
+    
+}
+
+#sidebar{
+  min-width: 300px;
+  border: 2px solid black;
+  margin-right: 75px;
+}
