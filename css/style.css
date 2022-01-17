@@ -1,13 +1,25 @@
 * {
   box-sizing: border-box;
 }
+body {
+  font-family:'Courier New', Courier, monospace;
+  background-color: rgb(156, 239, 240);
+  color: rgb(230, 171, 70);
+  background-image: url("../images/background.jpg");
+ 
+  background-size: 1700px 2500px;
+  background-repeat: no-repeat;
+  
+  
+}
+
 header{
  display: flex;
   flex-direction: row; 
   justify-content:start;
   align-items:center;
   color: black;
-  font-family: ;
+  font-family:cursive;
 }
 .logo-image{
   margin-bottom: 2rem;
@@ -15,17 +27,14 @@ header{
   margin-top: 3rem;
  }
  .title{
+
   margin: 0;
   margin-left: 1rem;
   margin-top: 15px;
   
 }
   
-body {
-  font-family:'Courier New', Courier, monospace;
-  background-color: rgb(156, 239, 240);
-  color: rgb(230, 171, 70);
-}
+
 
 main {
   display: flex;
@@ -33,6 +42,18 @@ main {
   /* width: 1024px; */
   margin: 3rem auto;
 
+}
+
+ul{
+  color: black;
+}
+h3{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  margin-right: 3rem;
+  color: black;
+  font-size: 30px;
 }
 .wrapper {
   display: grid;
@@ -42,7 +63,8 @@ main {
 
   font-size:3rem;
   color: rgb(74, 68, 68);
-
+  /* line-height: .8; */
+  /* margin: none !important; */
 }
 
 
@@ -86,13 +108,14 @@ p{
   flex-wrap: wrap; 
   align-content: center;
   font-size: 25px;
-  
+  background-color: rgba(0, 0, 0, 0.475);
 }
 
 #sidebar{
   min-width: 300px;
-  border: 2px solid black;
+  border: 5px solid black;
   margin-right: 75px;
+  padding: 2rem;
 }
 #button{
   background-color: rgba(203, 97, 97, 0.734);
@@ -103,4 +126,13 @@ p{
   font-size: .8rem;
   margin: 1rem;
   pointer-events: none;
+}
+#button.clicks-allowed {
+  background-color: rosybrown;
+  color: white;
+  cursor: pointer;
+  pointer-events: auto;
+}
+#button.clicks-allowed:hover {
+  background-color: rgb(211, 187, 175)
 }
