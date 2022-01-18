@@ -2,7 +2,7 @@
 let picArray = [];
 let currentImages = [];
 let counter = 0;
-let counterMaxValue = 3;
+let counterMaxValue = 15;
 
 const myContainer = document.querySelector('section');
 const myButton = document.getElementById('button');
@@ -43,18 +43,9 @@ function renderPics() {
     // we are accessing the picArrays data at the randomly generated numbers' 
     // index to set that to the currentimages array index of 0-2, so the current images data fully set.
     let p = potentialIndexesToAdd[i];
-    console.log('p is : ', p);
-    console.log('currentImages[i] is : ', currentImages[i]);
-    console.log('picArray[p] : is ', picArray[p]);
-
     currentImages[i].src = picArray[p].src;
     currentImages[i].alt = picArray[p].name;
     picArray[p].views++;
-
-    console.log('then after setting infromation :');
-    console.log('currentImages[i].src is : ', currentImages[i].src);
-    console.log('currentImages[i].alt is : ', currentImages[i].alt);
-
   }
 }
 
@@ -91,14 +82,21 @@ function handleButtonClick() {
 }
 
 function renderResults() {
-  let ul = document.querySelector('ul');
+  let ul = document.getElementById('results');
+
+  if (ul) {
+    ul.remove();
+  }
+  ul = document.createElement('ul');
+  ul.id = 'results'
+
   for (let i = 0; i < picArray.length; i++) {
     let message = `${picArray[i].name} had ${picArray[i].views} views amd was clicked on ${picArray[i].likes} times`;
     let li = document.createElement('li');
     li. textContent = message;
     ul.appendChild(li);
   }
-
+  document.getElementById('sidebar').appendChild(ul);
 }
 
 // code that runs on page load:

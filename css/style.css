@@ -25,6 +25,7 @@ header{
   margin-bottom: 2rem;
   margin-left: 1rem;
   margin-top: 3rem;
+
  }
  .title{
 
@@ -63,10 +64,11 @@ h3{
 
   font-size:3rem;
   color: rgb(74, 68, 68);
-  /* line-height: .8; */
-  /* margin: none !important; */
+  
 }
-
+section{
+ 
+}
 
 
 
@@ -74,6 +76,9 @@ section img{
   width: 380px;
   max-height: 20rem;
   border: 5px solid transparent;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 7px;
+  padding: 10px;
 }
 section img {
   width: 380px;
@@ -100,15 +105,20 @@ section img:hover {
 #paragraph{
   grid-column-start: 1;
   grid-column-end: 4;
-  display: flex;
+  /* display: flex; */
 }
 p{
+  display: flex;
   flex-direction: row; 
   justify-content: center;
   flex-wrap: wrap; 
   align-content: center;
+  padding: 1rem;
+  color: aliceblue;
   font-size: 25px;
   background-color: rgba(0, 0, 0, 0.475);
+  border-radius: 7px;
+  box-shadow: 5px 10px 30px rgba(0, 255, 229, 0.502);
 }
 
 #sidebar{
@@ -116,6 +126,9 @@ p{
   border: 5px solid black;
   margin-right: 75px;
   padding: 2rem;
+}
+#sidebar img.name{
+  font-weight: bold;
 }
 #button{
   background-color: rgba(203, 97, 97, 0.734);
@@ -128,11 +141,11 @@ p{
   pointer-events: none;
 }
 #button.clicks-allowed {
-  background-color: rosybrown;
-  color: white;
+  background-color: rgb(215, 87, 87);
+  color: rgb(255, 255, 255);
   cursor: pointer;
   pointer-events: auto;
 }
 #button.clicks-allowed:hover {
-  background-color: rgb(211, 187, 175)
+  background-color: rgb(31, 30, 30)
 }
