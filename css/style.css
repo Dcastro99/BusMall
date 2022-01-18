@@ -1,31 +1,41 @@
 * {
   box-sizing: border-box;
 }
+body {
+  font-family:'Courier New', Courier, monospace;
+  background-color: rgb(156, 239, 240);
+  color: rgb(230, 171, 70);
+  background-image: url("../images/background.jpg");
+ 
+  background-size: 1700px 2500px;
+  background-repeat: no-repeat;
+  
+  
+}
+
 header{
  display: flex;
   flex-direction: row; 
   justify-content:start;
   align-items:center;
   color: black;
-  font-family: ;
+  font-family:cursive;
 }
 .logo-image{
   margin-bottom: 2rem;
   margin-left: 1rem;
   margin-top: 3rem;
+
  }
  .title{
+
   margin: 0;
   margin-left: 1rem;
   margin-top: 15px;
   
 }
   
-body {
-  font-family:'Courier New', Courier, monospace;
-  background-color: rgb(156, 239, 240);
-  color: rgb(230, 171, 70);
-}
+
 
 main {
   display: flex;
@@ -33,6 +43,18 @@ main {
   /* width: 1024px; */
   margin: 3rem auto;
 
+}
+
+ul{
+  color: black;
+}
+h3{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  margin-right: 3rem;
+  color: black;
+  font-size: 30px;
 }
 .wrapper {
   display: grid;
@@ -42,9 +64,11 @@ main {
 
   font-size:3rem;
   color: rgb(74, 68, 68);
-
+  
 }
-
+section{
+ 
+}
 
 
 
@@ -52,6 +76,9 @@ section img{
   width: 380px;
   max-height: 20rem;
   border: 5px solid transparent;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 7px;
+  padding: 10px;
 }
 section img {
   width: 380px;
@@ -78,21 +105,30 @@ section img:hover {
 #paragraph{
   grid-column-start: 1;
   grid-column-end: 4;
-  display: flex;
+  /* display: flex; */
 }
 p{
+  display: flex;
   flex-direction: row; 
   justify-content: center;
   flex-wrap: wrap; 
   align-content: center;
+  padding: 1rem;
+  color: aliceblue;
   font-size: 25px;
-  
+  background-color: rgba(0, 0, 0, 0.475);
+  border-radius: 7px;
+  box-shadow: 5px 10px 30px rgba(0, 255, 229, 0.502);
 }
 
 #sidebar{
   min-width: 300px;
-  border: 2px solid black;
+  border: 5px solid black;
   margin-right: 75px;
+  padding: 2rem;
+}
+#sidebar img.name{
+  font-weight: bold;
 }
 #button{
   background-color: rgba(203, 97, 97, 0.734);
@@ -103,4 +139,13 @@ p{
   font-size: .8rem;
   margin: 1rem;
   pointer-events: none;
+}
+#button.clicks-allowed {
+  background-color: rgb(215, 87, 87);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  pointer-events: auto;
+}
+#button.clicks-allowed:hover {
+  background-color: rgb(31, 30, 30)
 }
