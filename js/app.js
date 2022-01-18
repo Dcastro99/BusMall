@@ -7,11 +7,10 @@ let counterMaxValue = 15;
 const myContainer = document.querySelector('section');
 const myButton = document.getElementById('button');
 
-
 let image1 = document.querySelector('section img:first-child');
 let image2 = document.querySelector('section img:nth-child(2)');
 let image3 = document.querySelector('section img:nth-child(3)');
-// at this point images are only HTML tags / selectors.
+
 currentImages.push(image1, image2, image3);
 
 function BusPic(name, fileExtension = 'jpg') {
@@ -21,27 +20,25 @@ function BusPic(name, fileExtension = 'jpg') {
   this.src = `images/${name}.${fileExtension}`;
   picArray.push(this);
 }
+
 function selectRandomPicIndex() {
   return Math.floor(Math.random() * picArray.length);
 }
+
 function renderPics() {
   let potentialIndexesToAdd = [];
 
-  let picIndex = selectRandomPicIndex();
+  
 
   while (potentialIndexesToAdd.length < 3) {
+    let picIndex = selectRandomPicIndex();
     if (!potentialIndexesToAdd.includes(picIndex)) {
       potentialIndexesToAdd.push(picIndex);
-    } else {
-      picIndex = selectRandomPicIndex();
     }
   }
 
   for (let i = 0; i < potentialIndexesToAdd.length; i++) {
-    // p = 15, i = 0;
-    // we are setting the current image at index 0's src to be the picArray images at index 15's src
-    // we are accessing the picArrays data at the randomly generated numbers' 
-    // index to set that to the currentimages array index of 0-2, so the current images data fully set.
+   
     let p = potentialIndexesToAdd[i];
     currentImages[i].src = picArray[p].src;
     currentImages[i].alt = picArray[p].name;
@@ -54,19 +51,17 @@ function handleClick(event) {
     alert('Please click on an image');
   }
   counter++;
-  // find out what image was clicked on
+  
   let picClicked = event.target.alt;
-  // increment likes on that goat
-  // Google better way?
+ 
   for (let i = 0; i < picArray.length; i++) {
     if (picClicked === picArray[i].name) {
       picArray[i].likes++;
       break;
     }
   }
-  // render new goats on the page
   if (counter === counterMaxValue) {
-    // stop the game
+ 
     myContainer.removeEventListener('click', handleClick);
     myButton.className = 'clicks-allowed';
     myButton.addEventListener('click', handleButtonClick);

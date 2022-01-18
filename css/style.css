@@ -6,9 +6,6 @@ body {
   background-color: rgb(156, 239, 240);
   color: rgb(230, 171, 70);
   background: url(../images/background.jpg) no-repeat center center fixed;
-  /* background-size: 1700px 2500px; */
-
-
 }
 
 header{
@@ -19,29 +16,35 @@ header{
   color: black;
   font-family:cursive;
   text-shadow: 2px 2px 8px #00000066;
-}
-.logo-image{
+  /* background-color: rgba(0, 0, 0, 0.064); */
+  border-radius: 5px;
+  /* box-shadow: 5px 10px 30px rgba(0, 229, 255, 0.18); */
+  }
+  .logo-image{
   margin-bottom: 2rem;
   margin-left: 1rem;
   margin-top: 3rem;
+  }
 
- }
  .title{
 
   margin: 0;
   margin-left: 1rem;
   margin-top: 15px;
-  
+}
+.stripes {
+  margin-top: 1rem;
+  width: 1649px;
+  padding: .1rem;
+  background: repeating-linear-gradient(
+    25deg, rgb(0, 0, 0), rgb(201, 193, 193) .5px, rgb(77, 74, 74) 2px
+  );
 }
   
-
-
 main {
   display: flex;
   flex-direction: row; 
-  /* width: 1024px; */
   margin: 3rem auto;
-
 }
 
 ul{
@@ -55,8 +58,8 @@ ul li{
   margin-top: 10px;
   border:1px solid rgb(11, 10, 10);
   padding: 2px;
-
 }
+ 
 h3{
   display: flex;
   justify-content:center;
@@ -70,11 +73,8 @@ h3{
   grid-template-columns:  380px 380px 380px ;
   grid-template-rows: 20rem 20rem ;
   font-size:3rem;
-  color: rgb(74, 68, 68);
-  
+  color: rgb(74, 68, 68); 
 }
-
-
 
 section img{
   width: 380px;
@@ -84,11 +84,13 @@ section img{
   border-radius: 7px;
   padding: 10px;
 }
+
 section img {
   width: 380px;
   max-height: 20rem;
   border: 5px solid transparent;
 }
+
 section img:hover {
   border: 5px solid rgb(62, 60, 57);
   cursor: pointer;
@@ -98,19 +100,23 @@ section img:hover {
   grid-column: 1 / 2 ;
   grid-row: 1 / 2;  
 }
+
 #pic2 {
   grid-column: 2 / 3 ;
   grid-row: 1 / 2;  
 }
+
 #pic3 {
   grid-column: 3 / 4 ;
   grid-row: 1 / 2;  
 }
+
 #paragraph{
   grid-column-start: 1;
   grid-column-end: 4;
   /* display: flex; */
 }
+
 p{
   display: flex;
   flex-direction: row; 
@@ -131,7 +137,6 @@ p{
   border: 5px solid none;
   margin-right: 75px;
   padding: 1rem;
-  /* background-color: rgba(0, 0, 0, 0.475); */
   border-radius: 5px;
   background-image: url("../images/bk\ paperplane.jpeg");
   background-position: center; 
@@ -143,6 +148,7 @@ p{
 #sidebar img.name{
   font-weight: bold;
 }
+
 #button{
   background-color: rgba(203, 97, 97, 0.734);
   color: lightgrey;
@@ -153,12 +159,22 @@ p{
   margin: 1rem;
   pointer-events: none;
 }
+
 #button.clicks-allowed {
   background-color: rgb(215, 87, 87);
   color: rgb(255, 255, 255);
   cursor: pointer;
   pointer-events: auto;
 }
+
 #button.clicks-allowed:hover {
   background-color: rgb(31, 30, 30)
+}
+
+#footer{
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  /* background-color: rgba(0, 0, 0, 0.084); */
+  color:black;
 }
