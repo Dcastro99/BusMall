@@ -1,9 +1,9 @@
 'use strict';
 let picArray = [];
-let currentImages = [];
+// let currentImages = [];
 let counter = 0;
 let counterMaxValue = 15;
-
+let indexArray =[];
 const myContainer = document.querySelector('section');
 const myButton = document.getElementById('button');
 
@@ -11,7 +11,7 @@ let image1 = document.querySelector('section img:first-child');
 let image2 = document.querySelector('section img:nth-child(2)');
 let image3 = document.querySelector('section img:nth-child(3)');
 
-currentImages.push(image1, image2, image3);
+// currentImages.push(image1, image2, image3);
 
 function BusPic(name, fileExtension = 'jpg') {
   this.likes = 0;
@@ -26,24 +26,45 @@ function selectRandomPicIndex() {
 }
 
 function renderPics() {
-  let potentialIndexesToAdd = [];
+  // let potentialIndexesToAdd = [];
 
-  
-
-  while (potentialIndexesToAdd.length < 3) {
-    let picIndex = selectRandomPicIndex();
-    if (!potentialIndexesToAdd.includes(picIndex)) {
-      potentialIndexesToAdd.push(picIndex);
+  while (indexArray.length < 6) {
+    let randomNumber = selectRandomPicIndex();
+    if (!indexArray.includes(randomNumber)) {
+      indexArray.push(randomNumber);
     }
+  
   }
+  // while (potentialIndexesToAdd.length < 3) {
+  //   let picIndex = selectRandomPicIndex();
+  //   if (!potentialIndexesToAdd.includes(picIndex)) {
+  //     potentialIndexesToAdd.push(picIndex);
+  //   }
+    console.log(indexArray);
+  // }
 
-  for (let i = 0; i < potentialIndexesToAdd.length; i++) {
+  let pic1 = indexArray.shift();
+  let pic2 = indexArray.shift();
+  let pic3 = indexArray.shift();
+
+  image1.src = picArray[pic1].src;
+  image1.alt = picArray[pic1].name;
+  image2.src = picArray[pic2].src;
+  image2.alt = picArray[pic2].name;
+  image3.src = picArray[pic3].src;
+  image3.alt = picArray[pic3].name;
+  picArray[pic1].views++;
+  picArray[pic2].views++;
+  picArray[pic3].views++;
+
+  // for (let i = 0; i < potentialIndexesToAdd.length; i++) {
    
-    let p = potentialIndexesToAdd[i];
-    currentImages[i].src = picArray[p].src;
-    currentImages[i].alt = picArray[p].name;
-    picArray[p].views++;
-  }
+  //   let p = potentialIndexesToAdd[i];
+  //   currentImages[i].src = picArray[p].src;
+  //   currentImages[i].alt = picArray[p].name;
+  //   picArray[p].views++;
+  // }
+  
 }
 
 function handleClick(event) {
