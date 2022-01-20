@@ -1,7 +1,6 @@
 'use strict';
 
 let picArray = [];
-// let currentImages = [];
 let counter = 0;
 let counterMaxValue = 25;
 let indexArray =[];
@@ -12,7 +11,6 @@ let image1 = document.querySelector('section img:first-child');
 let image2 = document.querySelector('section img:nth-child(2)');
 let image3 = document.querySelector('section img:nth-child(3)');
 
-// currentImages.push(image1, image2, image3);
 
 function BusPic(name, fileExtension = 'jpg') {
   this.likes = 0;
@@ -27,7 +25,7 @@ function selectRandomPicIndex() {
 }
 
 function renderPics() {
-  // let potentialIndexesToAdd = [];
+ 
 
   while (indexArray.length < 6) {
     let randomNumber = selectRandomPicIndex();
@@ -36,13 +34,7 @@ function renderPics() {
     }
   
   }
-  // while (potentialIndexesToAdd.length < 3) {
-  //   let picIndex = selectRandomPicIndex();
-  //   if (!potentialIndexesToAdd.includes(picIndex)) {
-  //     potentialIndexesToAdd.push(picIndex);
-  //   }
-  // }
-
+  
   let pic1 = indexArray.shift();
   let pic2 = indexArray.shift();
   let pic3 = indexArray.shift();
@@ -57,14 +49,6 @@ function renderPics() {
   picArray[pic2].views++;
   picArray[pic3].views++;
 
-  // for (let i = 0; i < potentialIndexesToAdd.length; i++) {
-   
-  //   let p = potentialIndexesToAdd[i];
-  //   currentImages[i].src = picArray[p].src;
-  //   currentImages[i].alt = picArray[p].name;
-  //   picArray[p].views++;
-  // }
-  
 }
 
 function handleClick(event) {
@@ -84,15 +68,15 @@ function handleClick(event) {
   if (counter === counterMaxValue) {
  
     myContainer.removeEventListener('click', handleClick);
-   myCanvas.className = 'clicks-allowed';
-    // myButton.addEventListener('click', handleButtonClick);
+    myCanvas.className = 'clicks-allowed';
     renderChart();
   }
   else {
-  renderPics();
+    renderPics();
   }
 }
-
+// https://www.chartjs.org/docs/latest/
+// https://www.chartjs.org/docs/latest/samples/information.html
 function renderChart() {
   let picNames = [];
   let picLikes = [];
@@ -148,9 +132,6 @@ function renderChart() {
   const myChart = new Chart(chart, config);
   
 }
-
-
-// code that runs on page load:
 
 new BusPic('bag');
 new BusPic('banana');
