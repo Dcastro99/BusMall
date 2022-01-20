@@ -100,6 +100,7 @@ function renderChart() {
         'rgb(64, 215, 226)',
       ],
       borderWidth: 2
+      
     },
     {
       label: '# of like/clicks',
