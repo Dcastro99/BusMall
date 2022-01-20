@@ -1,8 +1,9 @@
 'use strict';
+
 let picArray = [];
 // let currentImages = [];
 let counter = 0;
-let counterMaxValue = 15;
+let counterMaxValue = 25;
 let indexArray =[];
 const myContainer = document.querySelector('section');
 const myButton = document.getElementById('button');
@@ -40,7 +41,6 @@ function renderPics() {
   //   if (!potentialIndexesToAdd.includes(picIndex)) {
   //     potentialIndexesToAdd.push(picIndex);
   //   }
-    console.log(indexArray);
   // }
 
   let pic1 = indexArray.shift();
@@ -84,36 +84,71 @@ function handleClick(event) {
   if (counter === counterMaxValue) {
  
     myContainer.removeEventListener('click', handleClick);
-    myButton.className = 'clicks-allowed';
-    myButton.addEventListener('click', handleButtonClick);
+   myCanvas.className = 'clicks-allowed';
+    // myButton.addEventListener('click', handleButtonClick);
+    renderChart();
   }
+  else {
   renderPics();
+  }
 }
 
-function handleButtonClick() {
-  if (counter === counterMaxValue) {
-    renderResults();
-  }
-
-}
-
-function renderResults() {
-  let ul = document.getElementById('results');
-
-  if (ul) {
-    ul.remove();
-  }
-  ul = document.createElement('ul');
-  ul.id = 'results'
-
+function renderChart() {
+  let picNames = [];
+  let picLikes = [];
+  let picViews = [];
   for (let i = 0; i < picArray.length; i++) {
-    let message = `${picArray[i].name} had ${picArray[i].views} views amd was clicked on ${picArray[i].likes} times`;
-    let li = document.createElement('li');
-    li. textContent = message;
-    ul.appendChild(li);
+   
+    picNames.push(picArray[i].name);
+    picLikes.push(picArray[i].likes);
+    picViews.push(picArray[i].views);
   }
-  document.getElementById('sidebar').appendChild(ul);
+  console.log(picNames);
+  const data = {
+    labels: picNames,
+    datasets: [{
+      label: '# of Views',
+      data: picViews,
+      backgroundColor: [
+        'rgba(64, 215, 226, 0.4)'
+      ],
+      borderColor: [
+        'rgb(64, 215, 226)',
+      ],
+      borderWidth: 2
+    },
+    {
+      label: '# of like/clicks',
+      data: picLikes,
+      backgroundColor: [
+        'rgba(255, 216, 169, 0.4)',
+      ],
+      borderColor: [
+        'rgb(255, 216, 169)',
+      ],
+      borderWidth: 2
+    }]
+  };
+  Chart.defaults.font.size = 16;
+  const config = {
+    type: 'bar',
+    data: data,
+    options: {
+      scales: {
+        
+        y: {
+          beginAtZero: true
+        }
+        
+      }
+    },
+    
+  };
+  const chart = document.getElementById('myCanvas');
+  const myChart = new Chart(chart, config);
+  
 }
+
 
 // code that runs on page load:
 

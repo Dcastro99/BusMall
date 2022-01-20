@@ -40,6 +40,14 @@ header{
     25deg, rgb(0, 0, 0), rgb(201, 193, 193) .5px, rgb(77, 74, 74) 2px
   );
 }
+.stripes2 {
+  margin-top: 8rem;
+  width: 1649px;
+  padding: .1rem;
+  background: repeating-linear-gradient(
+    25deg, rgb(0, 0, 0), rgb(201, 193, 193) .5px, rgb(77, 74, 74) 2px
+  );
+}
   
 main {
   display: flex;
@@ -96,6 +104,17 @@ section img:hover {
   cursor: pointer;
 }
 
+
+#myCanvas{
+  
+
+  grid-column-start: 2;
+  max-height: 400px;
+  padding: 2rem;
+}
+#myCanvas.clicks-allowed{
+  background-color: rgb(255, 255, 255);
+}
 #pic1 {
   grid-column: 1 / 2 ;
   grid-row: 1 / 2;  
@@ -149,7 +168,7 @@ p{
   font-weight: bold;
 }
 
-#button{
+/* #button{
   background-color: rgba(203, 97, 97, 0.734);
   color: lightgrey;
   padding: .5rem 1rem;
@@ -169,7 +188,7 @@ p{
 
 #button.clicks-allowed:hover {
   background-color: rgb(31, 30, 30)
-}
+} */
 
 #footer{
   margin-top: 2rem;
