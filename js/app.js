@@ -32,9 +32,9 @@ function renderPics() {
     if (!indexArray.includes(randomNumber)) {
       indexArray.push(randomNumber);
     }
-  
+ 
   }
-  
+ 
   let pic1 = indexArray.shift();
   let pic2 = indexArray.shift();
   let pic3 = indexArray.shift();
