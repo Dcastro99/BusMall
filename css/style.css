@@ -29,7 +29,7 @@ header{
  .title{
 
   margin: 0;
-  margin-left: 1rem;
+  margin-left: .5rem;
   margin-top: 15px;
 }
 .stripes {
@@ -40,6 +40,7 @@ header{
     25deg, rgb(0, 0, 0), rgb(201, 193, 193) .5px, rgb(77, 74, 74) 2px
   );
 }
+
   
 main {
   display: flex;
@@ -96,6 +97,16 @@ section img:hover {
   cursor: pointer;
 }
 
+
+#myCanvas{
+  
+  grid-column-start: 2;
+  max-height: 400px;
+  padding: 2rem;
+}
+#myCanvas.clicks-allowed{
+  background-color: rgb(255, 255, 255);
+}
 #pic1 {
   grid-column: 1 / 2 ;
   grid-row: 1 / 2;  
@@ -145,30 +156,13 @@ p{
   background-size: 800px 1100px;
 }
 
-#sidebar img.name{
-  font-weight: bold;
-}
-
-#button{
-  background-color: rgba(203, 97, 97, 0.734);
-  color: lightgrey;
-  padding: .5rem 1rem;
-  width: max-content;
-  height: max-content;
-  font-size: .8rem;
-  margin: 1rem;
-  pointer-events: none;
-}
-
-#button.clicks-allowed {
-  background-color: rgb(215, 87, 87);
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-  pointer-events: auto;
-}
-
-#button.clicks-allowed:hover {
-  background-color: rgb(31, 30, 30)
+.stripes2 {
+ margin-top: 7rem;
+  width: 1649px;
+  padding: .1rem;
+  background: repeating-linear-gradient(
+    25deg, rgb(0, 0, 0), rgb(201, 193, 193) .5px, rgb(77, 74, 74) 2px
+  );
 }
 
 #footer{

@@ -1,17 +1,16 @@
 'use strict';
+
 let picArray = [];
-let currentImages = [];
 let counter = 0;
-let counterMaxValue = 15;
+let counterMaxValue = 25;
+let indexArray =[];
 
 const myContainer = document.querySelector('section');
-const myButton = document.getElementById('button');
 
 let image1 = document.querySelector('section img:first-child');
 let image2 = document.querySelector('section img:nth-child(2)');
 let image3 = document.querySelector('section img:nth-child(3)');
 
-currentImages.push(image1, image2, image3);
 
 function BusPic(name, fileExtension = 'jpg') {
   this.likes = 0;
@@ -26,24 +25,30 @@ function selectRandomPicIndex() {
 }
 
 function renderPics() {
-  let potentialIndexesToAdd = [];
+ 
 
-  
-
-  while (potentialIndexesToAdd.length < 3) {
-    let picIndex = selectRandomPicIndex();
-    if (!potentialIndexesToAdd.includes(picIndex)) {
-      potentialIndexesToAdd.push(picIndex);
+  while (indexArray.length < 6) {
+    let randomNumber = selectRandomPicIndex();
+    if (!indexArray.includes(randomNumber)) {
+      indexArray.push(randomNumber);
     }
+ 
   }
+ 
+  let pic1 = indexArray.shift();
+  let pic2 = indexArray.shift();
+  let pic3 = indexArray.shift();
 
-  for (let i = 0; i < potentialIndexesToAdd.length; i++) {
-   
-    let p = potentialIndexesToAdd[i];
-    currentImages[i].src = picArray[p].src;
-    currentImages[i].alt = picArray[p].name;
-    picArray[p].views++;
-  }
+  image1.src = picArray[pic1].src;
+  image1.alt = picArray[pic1].name;
+  image2.src = picArray[pic2].src;
+  image2.alt = picArray[pic2].name;
+  image3.src = picArray[pic3].src;
+  image3.alt = picArray[pic3].name;
+  picArray[pic1].views++;
+  picArray[pic2].views++;
+  picArray[pic3].views++;
+
 }
 
 function handleClick(event) {
@@ -63,38 +68,70 @@ function handleClick(event) {
   if (counter === counterMaxValue) {
  
     myContainer.removeEventListener('click', handleClick);
-    myButton.className = 'clicks-allowed';
-    myButton.addEventListener('click', handleButtonClick);
+    myCanvas.className = 'clicks-allowed';
+    renderChart();
   }
-  renderPics();
+  else {
+    renderPics();
+  }
 }
 
-function handleButtonClick() {
-  if (counter === counterMaxValue) {
-    renderResults();
-  }
-
-}
-
-function renderResults() {
-  let ul = document.getElementById('results');
-
-  if (ul) {
-    ul.remove();
-  }
-  ul = document.createElement('ul');
-  ul.id = 'results'
-
+function renderChart() {
+  let picNames = [];
+  let picLikes = [];
+  let picViews = [];
   for (let i = 0; i < picArray.length; i++) {
-    let message = `${picArray[i].name} had ${picArray[i].views} views amd was clicked on ${picArray[i].likes} times`;
-    let li = document.createElement('li');
-    li. textContent = message;
-    ul.appendChild(li);
+   
+    picNames.push(picArray[i].name);
+    picLikes.push(picArray[i].likes);
+    picViews.push(picArray[i].views);
   }
-  document.getElementById('sidebar').appendChild(ul);
+  
+  const data = {
+    labels: picNames,
+    datasets: [{
+      label: 'Number of Views',
+      data: picViews,
+      backgroundColor: [
+        'rgba(64, 215, 226, 0.4)'
+      ],
+      borderColor: [
+        'rgb(64, 215, 226)',
+      ],
+      borderWidth: 2
+      
+    },
+    {
+      label: 'Number of likes',
+      data: picLikes,
+      backgroundColor: [
+        'rgba(255, 216, 169, 0.4)',
+      ],
+      borderColor: [
+        'rgb(255, 216, 169)',
+      ],
+      borderWidth: 2
+    }]
+  };
+  Chart.defaults.font.size = 16;
+  const config = {
+    type: 'bar',
+    data: data,
+    options: {
+      scales: {
+        
+        y: {
+          beginAtZero: true
+        }
+        
+      }
+    },
+    
+  };
+  const chart = document.getElementById('myCanvas');
+  const myChart = new Chart(chart, config);
+  
 }
-
-// code that runs on page load:
 
 new BusPic('bag');
 new BusPic('banana');
