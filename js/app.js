@@ -5,7 +5,7 @@ let counter = 0;
 let counterMaxValue = 25;
 let indexArray =[];
 
-const myContainer = document.querySelector('section');
+const myContainer = document.getElementById('pics');
 
 let image1 = document.querySelector('section img:first-child');
 let image2 = document.querySelector('section img:nth-child(2)');

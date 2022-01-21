@@ -78,7 +78,7 @@ h3{
 }
 
 section img{
-  width: 380px;
+  width: 360px;
   max-height: 20rem;
   border: 5px solid transparent;
   background-color: rgba(0, 0, 0, 0.05);
@@ -86,11 +86,11 @@ section img{
   padding: 10px;
 }
 
-section img {
+/* section img {
   width: 380px;
   max-height: 20rem;
   border: 5px solid transparent;
-}
+} */
 
 section img:hover {
   border: 5px solid rgb(62, 60, 57);
@@ -120,6 +120,13 @@ section img:hover {
 #pic3 {
   grid-column: 3 / 4 ;
   grid-row: 1 / 2;  
+}
+
+#pics{
+  /* grid-column-start: 1;
+  grid-column-end: 5; */
+  grid-column: 1/4;
+  grid-row: 1/2;
 }
 
 #paragraph{
