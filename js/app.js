@@ -4,8 +4,8 @@ let picArray = [];
 let counter = 0;
 let counterMaxValue = 25;
 let indexArray =[];
+
 const myContainer = document.querySelector('section');
-const myButton = document.getElementById('button');
 
 let image1 = document.querySelector('section img:first-child');
 let image2 = document.querySelector('section img:nth-child(2)');
@@ -75,8 +75,7 @@ function handleClick(event) {
     renderPics();
   }
 }
-// https://www.chartjs.org/docs/latest/
-// https://www.chartjs.org/docs/latest/samples/information.html
+
 function renderChart() {
   let picNames = [];
   let picLikes = [];
@@ -87,11 +86,11 @@ function renderChart() {
     picLikes.push(picArray[i].likes);
     picViews.push(picArray[i].views);
   }
-  console.log(picNames);
+  
   const data = {
     labels: picNames,
     datasets: [{
-      label: '# of Views',
+      label: 'Number of Views',
       data: picViews,
       backgroundColor: [
         'rgba(64, 215, 226, 0.4)'
@@ -103,7 +102,7 @@ function renderChart() {
       
     },
     {
-      label: '# of like/clicks',
+      label: 'Number of likes',
       data: picLikes,
       backgroundColor: [
         'rgba(255, 216, 169, 0.4)',
