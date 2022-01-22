@@ -76,6 +76,7 @@ function handleClick(event) {
   }
 }
 
+
 function renderChart() {
   let picNames = [];
   let picLikes = [];

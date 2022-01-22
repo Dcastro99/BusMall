@@ -34,7 +34,8 @@ header{
 }
 .stripes {
   margin-top: 1rem;
-  width: 1649px;
+  /* width: 1649px; */
+  max-width: auto;
   padding: .1rem;
   background: repeating-linear-gradient(
     25deg, rgb(0, 0, 0), rgb(201, 193, 193) .5px, rgb(77, 74, 74) 2px
@@ -165,7 +166,8 @@ p{
 
 .stripes2 {
  margin-top: 7rem;
-  width: 1649px;
+  /* width: 1649px; */
+  max-width: auto;
   padding: .1rem;
   background: repeating-linear-gradient(
     25deg, rgb(0, 0, 0), rgb(201, 193, 193) .5px, rgb(77, 74, 74) 2px
