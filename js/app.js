@@ -5,7 +5,7 @@ let counter = 0;
 let counterMaxValue = 25;
 let indexArray =[];
 
-const myContainer = document.querySelector('section');
+const myContainer = document.getElementById('pics');
 
 let image1 = document.querySelector('section img:first-child');
 let image2 = document.querySelector('section img:nth-child(2)');
@@ -25,8 +25,6 @@ function selectRandomPicIndex() {
 }
 
 function renderPics() {
- 
-
   while (indexArray.length < 6) {
     let randomNumber = selectRandomPicIndex();
     if (!indexArray.includes(randomNumber)) {
@@ -51,6 +49,16 @@ function renderPics() {
 
 }
 
+function storeChart() {
+  // "results" is our KEY
+  let stringifiedResults = JSON.stringify(picArray);
+  localStorage.setItem('results', stringifiedResults);
+}
+
+function getStoredData() {
+  return JSON.parse(localStorage.getItem('results'));
+}
+
 function handleClick(event) {
   if (event.target === myContainer) {
     alert('Please click on an image');
@@ -66,27 +74,38 @@ function handleClick(event) {
     }
   }
   if (counter === counterMaxValue) {
- 
     myContainer.removeEventListener('click', handleClick);
     myCanvas.className = 'clicks-allowed';
     renderChart();
-  }
-  else {
+    storeChart();
+  } else {
     renderPics();
   }
 }
+
 
 function renderChart() {
   let picNames = [];
   let picLikes = [];
   let picViews = [];
+  let storedCharts = getStoredData();
+
+
   for (let i = 0; i < picArray.length; i++) {
-   
+    if (storedCharts) {
+      for (let j = 0; j < storedCharts.length; j++) {
+        if (storedCharts[j].name == picArray[i].name) {
+          picArray[i].likes += storedCharts[j].likes;
+          picArray[i].views += storedCharts[j].views;
+        }
+      }
+    }
+
     picNames.push(picArray[i].name);
     picLikes.push(picArray[i].likes);
     picViews.push(picArray[i].views);
   }
-  
+
   const data = {
     labels: picNames,
     datasets: [{
@@ -152,8 +171,6 @@ new BusPic('tauntaun');
 new BusPic('unicorn');
 new BusPic('water-can');
 new BusPic('wine-glass');
-
-
 
 renderPics();
 
