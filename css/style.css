@@ -95,6 +95,7 @@ section img{
 
 section img:hover {
   border: 5px solid rgb(62, 60, 57);
+  /* box-shadow: inset 0 0 0 15px #1b1b1c; */
   cursor: pointer;
 }
 
@@ -107,7 +108,9 @@ section img:hover {
 }
 #myCanvas.clicks-allowed{
   background-color: rgb(255, 255, 255);
+  
 }
+
 #pic1 {
   grid-column: 1 / 2 ;
   grid-row: 1 / 2;  

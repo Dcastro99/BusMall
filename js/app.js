@@ -152,6 +152,7 @@ function renderChart() {
   
 }
 
+
 new BusPic('bag');
 new BusPic('banana');
 new BusPic('bathroom');
